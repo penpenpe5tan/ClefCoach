@@ -10,3 +10,5 @@
 ## 使い方
 1. このリポジトリをDL/clone
 2. `index.html` をブラウザで開く
+## Screenshot
+![音名トレーナー screenshot](assets/screenshot.png)
