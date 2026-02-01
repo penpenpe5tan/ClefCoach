@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ト音記号・ヘ音記号 音名トレーナー</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>音名トレーナー（ト音記号・ヘ音記号）</h1>
+    </header>
+
+    <section class="controls">
+      <div class="control-group">
+        <label for="clefMode">記号モード</label>
+        <select id="clefMode">
+          <option value="treble">ト音記号のみ</option>
+          <option value="bass">ヘ音記号のみ</option>
+          <option value="mixed" selected>ランダム（両方）</option>
+        </select>
+      </div>
+
+      <div class="control-group">
+        <label for="naming">表示（答え）</label>
+        <select id="naming">
+          <option value="letter" selected>英字（C D E...）</option>
+          <option value="solfege">ド レ ミ（固定ド）</option>
+        </select>
+      </div>
+
+      <div class="control-group">
+        <label for="questionMs">問題の表示時間（秒）</label>
+        <input id="questionMs" type="number" min="0.3" step="0.1" value="2.0" />
+      </div>
+
+      <div class="control-group">
+        <label for="answerMs">答えの表示時間（秒）</label>
+        <input id="answerMs" type="number" min="0.3" step="0.1" value="1.0" />
+      </div>
+
+      <div class="control-group">
+        <button id="startBtn">開始</button>
+        <button id="stopBtn" disabled>停止</button>
+        <button id="skipBtn" disabled>今すぐ次へ</button>
+      </div>
+    </section>
+
+    <main>
+      <div class="stage">
+        <svg id="staffSvg" viewBox="0 0 700 220" width="100%" height="auto" role="img" aria-label="五線譜">
+          <rect x="0" y="0" width="700" height="220" fill="white" />
+          <g id="staffLayer"></g>
+          <g id="noteLayer"></g>
+          <g id="overlayLayer"></g>
+        </svg>
+        <div id="answer" class="answer">&nbsp;</div>
+      </div>
+    </main>
+
+    <footer>
+      <small>画面に表示された音を心の中で答え、時間が来たら正解を確認してください。</small>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+  </html>
+
